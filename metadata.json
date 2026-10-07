@@ -1,0 +1,6 @@
+{
+  "name": "Tobi - High-Performance Baileys WhatsApp Library",
+  "description": "High-performance, lightweight Node.js wrapper for @whiskeysockets/baileys with zero external dependencies, dual QR/Pairing code authentication, 2GB+ file streaming, and interactive buttons & lists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
