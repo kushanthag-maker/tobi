@@ -9,23 +9,33 @@ export const DualAuthPlayground: React.FC<Props> = ({ lang }) => {
   const [authMode, setAuthMode] = useState<'pairing' | 'qr'>('pairing');
   const [phone, setPhone] = useState('94712345678');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [pairingCode, setPairingCode] = useState('7B4K-92MN');
+  const [pairingCode, setPairingCode] = useState('TOBI-DEVV');
+  const [codeFormat, setCodeFormat] = useState<'tobi-devv' | 'tobi-devv-full' | 'standard'>('tobi-devv');
   const [copied, setCopied] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
 
   const generateCode = () => {
     setIsGenerating(true);
     setTimeout(() => {
-      const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-      let part1 = '';
-      let part2 = '';
-      for (let i = 0; i < 4; i++) {
-        part1 += chars.charAt(Math.floor(Math.random() * chars.length));
-        part2 += chars.charAt(Math.floor(Math.random() * chars.length));
+      if (codeFormat === 'tobi-devv') {
+        setPairingCode('TOBI-DEVV');
+      } else if (codeFormat === 'tobi-devv-full') {
+        const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+        let suffix = '';
+        for (let i = 0; i < 4; i++) suffix += chars.charAt(Math.floor(Math.random() * chars.length));
+        setPairingCode(`TOBI-DEVV-${suffix}`);
+      } else {
+        const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+        let part1 = '';
+        let part2 = '';
+        for (let i = 0; i < 4; i++) {
+          part1 += chars.charAt(Math.floor(Math.random() * chars.length));
+          part2 += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        setPairingCode(`${part1}-${part2}`);
       }
-      setPairingCode(`${part1}-${part2}`);
       setIsGenerating(false);
-    }, 600);
+    }, 400);
   };
 
   const copyToClipboard = (text: string) => {
@@ -129,6 +139,41 @@ export const DualAuthPlayground: React.FC<Props> = ({ lang }) => {
                     ? 'උදාහරණ: ශ්රී ලංකාව සඳහා 947XXXXXXXX, ඉන්දියාව සඳහා 91XXXXXXXX'
                     : 'Digits only. No "+" or spaces needed (Tobi cleans formatting automatically).'}
                 </p>
+              </div>
+
+              {/* Format selector */}
+              <div className="flex items-center gap-2 text-xs">
+                <span className="text-slate-400 font-medium">Format:</span>
+                <button
+                  onClick={() => { setCodeFormat('tobi-devv'); setPairingCode('TOBI-DEVV'); }}
+                  className={`px-2.5 py-1 rounded-lg font-mono font-bold transition-all cursor-pointer ${
+                    codeFormat === 'tobi-devv'
+                      ? 'bg-emerald-500 text-slate-950 shadow'
+                      : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  }`}
+                >
+                  TOBI-DEVV
+                </button>
+                <button
+                  onClick={() => { setCodeFormat('tobi-devv-full'); setPairingCode('TOBI-DEVV-8942'); }}
+                  className={`px-2.5 py-1 rounded-lg font-mono font-bold transition-all cursor-pointer ${
+                    codeFormat === 'tobi-devv-full'
+                      ? 'bg-emerald-500 text-slate-950 shadow'
+                      : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  }`}
+                >
+                  TOBI-DEVV-XXXX
+                </button>
+                <button
+                  onClick={() => { setCodeFormat('standard'); setPairingCode('7B4K-92MN'); }}
+                  className={`px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer ${
+                    codeFormat === 'standard'
+                      ? 'bg-emerald-500 text-slate-950 shadow'
+                      : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  }`}
+                >
+                  Standard 8-char
+                </button>
               </div>
 
               {/* Generated Pairing Code Card */}
@@ -298,7 +343,7 @@ export const DualAuthPlayground: React.FC<Props> = ({ lang }) => {
                   </div>
                   <div className="bg-blue-950/60 border border-blue-800/80 p-3 rounded-lg my-2 space-y-1">
                     <div className="text-blue-300 font-bold bg-blue-900/60 px-2 py-0.5 rounded inline-block text-[11px]">
-                      WHATSAPP PAIRING CODE
+                      WHATSAPP PAIRING CODE (TOBI-DEVV)
                     </div>
                     <div className="text-emerald-400 font-bold text-base tracking-widest pt-1">
                       👉 CODE: <span className="text-yellow-300 font-black">{pairingCode}</span>

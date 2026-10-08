@@ -1,0 +1,26 @@
+{
+  "name": "tobi-baileys",
+  "version": "1.0.0",
+  "description": "Full standalone WhatsApp Web protocol library and Baileys alternative. Zero @whiskeysockets/baileys dependency.",
+  "main": "index.js",
+  "types": "types.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "keywords": [
+    "whatsapp",
+    "baileys",
+    "tobi",
+    "tobi-devv",
+    "whatsapp-web",
+    "pairing-code",
+    "interactive-buttons",
+    "stream-media"
+  ],
+  "author": "Tobi Dev",
+  "license": "Apache-2.0"
+}
