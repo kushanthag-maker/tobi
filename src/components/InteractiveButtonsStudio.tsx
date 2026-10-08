@@ -21,7 +21,7 @@ export const InteractiveButtonsStudio: React.FC<Props> = ({ lang }) => {
   
   const [buttons, setButtons] = useState<ButtonItem[]>([
     { id: '1', type: 'reply', label: '⚡ Check Ping', payload: '.ping' },
-    { id: '2', type: 'url', label: '🌐 Open GitHub', payload: 'https://github.com/whiskeysockets/baileys' },
+    { id: '2', type: 'url', label: '🌐 Open GitHub', payload: 'https://github.com/your-username/tobi-baileys' },
     { id: '3', type: 'call', label: '📞 Call Hotline', payload: '+94712345678' },
     { id: '4', type: 'copy', label: '📋 Copy Code', payload: 'TOBI-PRO-2026' }
   ]);

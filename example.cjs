@@ -43,7 +43,7 @@ bot.command(['menu', 'help'], async (m) => {
     buttons: [
       { type: 'reply', display_text: '⚡ Check Ping', id: '.ping' },
       { type: 'reply', display_text: '🎬 Movie Quality', id: '.list' },
-      { type: 'url', display_text: '🌐 GitHub', url: 'https://github.com/whiskeysockets/baileys' },
+      { type: 'url', display_text: '🌐 GitHub', url: 'https://github.com/your-username/tobi-baileys' },
       { type: 'copy', display_text: '📋 Copy ID', copy_code: 'TOBI-PRO-2026' }
     ]
   });

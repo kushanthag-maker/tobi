@@ -1,6 +1,6 @@
 {
-  "name": "Tobi - High-Performance Baileys WhatsApp Library",
-  "description": "High-performance, lightweight Node.js wrapper for @whiskeysockets/baileys with zero external dependencies, dual QR/Pairing code authentication, 2GB+ file streaming, and interactive buttons & lists.",
+  "name": "Tobi-Baileys - Standalone WhatsApp Web Library",
+  "description": "Full standalone WhatsApp Web protocol library and custom Baileys replacement with zero @whiskeysockets/baileys dependency. Features custom tobi-devv pairing code, 2GB+ file streaming, and interactive buttons.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

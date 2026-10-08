@@ -95,7 +95,7 @@ bot.command(['menu', 'help'], async (m) => {
       {
         type: 'url',
         display_text: '🌐 GitHub Repository',
-        url: 'https://github.com/whiskeysockets/baileys'
+        url: 'https://github.com/your-username/tobi-baileys'
       },
       {
         type: 'copy',
